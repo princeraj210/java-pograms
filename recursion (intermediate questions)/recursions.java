@@ -95,9 +95,52 @@ public class recursions {
     // }
     // }
 
-    // public static void main(String[] args) {
+    // public static void main(String[] args) { // time complexity --> O(n) -->
+    // string length
     // String str = "axbcxxd";
     // moveall(str, 0, 0, "");
     // }
 
+    // remove duplicate in a string -------------------------------------------
+    // public static boolean[] map = new boolean[26];
+
+    // public static void removeDuplicate(String str, int idx, String newString) {
+    // if (idx == str.length()) {
+    // System.out.println(newString);
+    // return;
+    // }
+    // char currchar = str.charAt(idx);
+    // if (map[currchar - 'a'] == true) {
+    // removeDuplicate(str, idx + 1, newString);
+    // } else {
+    // newString += currchar;
+    // map[currchar - 'a'] = true;
+    // removeDuplicate(str, idx + 1, newString);
+    // }
+    // }
+
+    // public static void main(String[] args) {
+    // String str = "abbccda";
+    // removeDuplicate(str, 0, "");
+    // }
+
+    // print all the subsequence of string ------------------------------------
+    public static void subsequences(String str, int idx, String newString) {
+        if (idx == str.length()) {
+            System.out.println(newString);
+            return;
+        }
+        char currChar = str.charAt(idx);
+        // to be
+        subsequences(str, idx + 1, newString + currChar);
+
+        // or not to be
+        subsequences(str, idx + 1, newString);
+
+    }
+
+    public static void main(String[] args) {
+        String str = "abc";
+        subsequences(str, 0, "");
+    }
 }
