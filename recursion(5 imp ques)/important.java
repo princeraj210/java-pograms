@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class important {
     // print all permutation of a string----------------------------------
@@ -39,4 +40,74 @@ public class important {
     // System.out.println(totalpath);
 
     // }
+
+    // place tiles of size 1xm in a floor of size nxm
+    // public static int tileplace(int n, int m) {
+    // if (n == m) {
+    // return 2;
+    // }
+    // if (n < m) {
+    // return 1;
+    // }
+    // // vertical placement
+    // int verplacement = tileplace(n - m, m);
+    // // horizontal placement
+    // int horplacement = tileplace(n - 1, verplacement);
+    // return verplacement + horplacement;
+    // }
+
+    // public static void main(String[] args) {
+    // int n = 4, m = 2;
+    // System.out.println(tileplace(n, m));
+    // }
+
+    // find the number of ways in which you can invite n people to your party,
+    // single or in pairs----------------------------------------------------
+    // public static int callguest(int n) {
+    // if (n <= 1) {
+    // return 1;
+    // }
+    // // single
+    // int ways1 = callguest(n - 1);
+    // // pairs
+    // int ways2 = (n - 1) * callguest(n - 2);
+    // return ways1 + ways2;
+    // }
+
+    // public static void main(String[] args) {
+    // int n = 4;
+    // System.out.println(callguest(n));
+    // }
+
+    // print all the subsets of a set of first n natural numbers -----------------
+    public static void printsubset(ArrayList<Integer> subset) {
+        for (int i = 0; i < subset.size(); i++) {
+            System.out.print(subset.get(i) + " ");
+        }
+        System.out.println();
+    }
+
+    public static void findsubsets(int n, ArrayList<Integer> subset) {
+        if (n == 0) {
+            printsubset(subset);
+            return;
+
+        }
+        // to be add
+        subset.add(n);
+        findsubsets(n - 1, subset);
+
+        // not to be add
+        subset.remove(subset.size() - 1);
+        findsubsets(n - 1, subset);
+    }
+
+    public static void main(String[] args) {
+        int n = 3;
+        ArrayList<Integer> subset = new ArrayList<>();
+        findsubsets(n, subset);
+    }
+
 }
+
+// ---------------remove comments and enjoy :)---------------------------------
