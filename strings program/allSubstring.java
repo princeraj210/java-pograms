@@ -7,7 +7,7 @@ public class allSubstring {
         int n = input.length();
         for(int i=0;i<n;i++){
             for(int j=i+1;j<=n;j++){
-                System.out.println(input.substring(i,j).split("\n"));
+                System.out.println(input.substring(i,j));
             }
         }
     }
